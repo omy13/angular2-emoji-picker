@@ -8,7 +8,7 @@ import 'rxjs/add/operator/takeUntil';
   selector: 'emoji-picker',
   styles: [':host { position: absolute; z-index: 9999; }'],
   template: `
-  <emoji-content (emoji-selection)="selectionEmitter.emit($event)"></emoji-content>
+  <emoji-content (emoji-selection)="selectionEmitter.emit($event)" [inputAutofocus]="emojiPickerAutofocus"></emoji-content>
   `,
   host: {
     '(document:mousedown)': 'onBackground($event)',
@@ -19,7 +19,9 @@ import 'rxjs/add/operator/takeUntil';
 
 export class EmojiPickerComponent {
   @Output('emoji-select') selectionEmitter = new EventEmitter();
-  @Output('picker-close') pickerCloseEmitter = new EventEmitter(); 
+  @Output('picker-close') pickerCloseEmitter = new EventEmitter();
+
+  emojiPickerAutofocus: boolean;
 
   private _lastHostMousedownEvent;
   private _currentTarget: ElementRef;
@@ -100,6 +102,10 @@ export class EmojiPickerComponent {
     
     /** set the position adjustments to the emoji picker element */
     this._renderer.setElementStyle(this._el.nativeElement, 'transform', `translate(${widthCorrection}px,${heightCorrection}px)`);
+  }
+
+  setAutofocus(value) {
+    this.emojiPickerAutofocus = value;
   }
 
   onBackground(event) {

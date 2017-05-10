@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output, ViewChild, Renderer, ElementRef } from '@angular/core';
+import { Component, EventEmitter, Output, ViewChild, Renderer, ElementRef, Input } from '@angular/core';
 import { Subject } from "rxjs/Subject";
 import "rxjs/add/operator/throttleTime";
 import "rxjs/add/operator/takeUntil";
@@ -12,6 +12,7 @@ import "rxjs/add/operator/takeUntil";
 })
 
 export class EmojiSearchComponent {
+  @Input('inputAutofocus') inputAutofocus: boolean;
   @Output('search') searchEmitter: EventEmitter<string> = new EventEmitter();
   @ViewChild('input') input: ElementRef;
 
@@ -27,7 +28,9 @@ export class EmojiSearchComponent {
   }
   
   ngAfterViewInit() {
-    this._renderer.invokeElementMethod(this.input.nativeElement, 'focus');
+    if (this.inputAutofocus) {
+      this._renderer.invokeElementMethod(this.input.nativeElement, 'focus');
+    }
   }
 
   handleInputChange(event) {

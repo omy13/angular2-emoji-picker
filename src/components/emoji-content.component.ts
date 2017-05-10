@@ -1,4 +1,4 @@
-import { Component, ViewChild, forwardRef, Output, EventEmitter } from '@angular/core';
+import { Component, ViewChild, forwardRef, Output, EventEmitter, Input } from '@angular/core';
 import { EMOJIS } from "../lib/emojis.data";
 import { EmojiListComponent } from "./";
 
@@ -9,6 +9,7 @@ import { EmojiListComponent } from "./";
   <emoji-header 
     [emojisCategories]="emojisCategories"
     (categorySelection)="categorySelectionHandler($event)"
+    [inputAutofocus]="inputAutofocus"
     (search)="searchHandler($event)"></emoji-header>
   <emoji-list [emojis]="emojis" (emoji-selection)="emojiSelectionEmitter.emit($event)"></emoji-list>
   <emoji-footer></emoji-footer>
@@ -18,6 +19,7 @@ import { EmojiListComponent } from "./";
 export class EmojiContentComponent {
   @ViewChild(forwardRef(() => EmojiListComponent)) emojiListComponent: EmojiListComponent;
   @Output('emoji-selection') emojiSelectionEmitter = new EventEmitter<any>();
+  @Input('inputAutofocus') inputAutofocus: boolean;
 
   private _emojis = EMOJIS;
   emojis = this._emojis.slice();

@@ -9,7 +9,9 @@
     class="emoji-toggle-button"
     (click)="toggled = !toggled"
     [(emojiPickerIf)]="]]><span class="code-special">{{toggled}}</span><![CDATA["
+    [emojiPickerPreserveSelection]="false"
     [emojiPickerDirection]="']]><input class="code-input" [style.width.px]="direction.length * 7.5" type="text" [(ngModel)]="direction" /><![CDATA['"
+    [emojiPickerAutofocus]="true"
     (emojiPickerSelect)="handleSelection(]]><span class="code-special">$event{{' = ' + eventMock}}</span><![CDATA[)">😄</i>
 ]]></pre></code>
 
@@ -27,7 +29,9 @@
     class="emoji-toggle-button"
     (click)="toggled = !toggled"
     [(emojiPickerIf)]="toggled"
+    [emojiPickerPreserveSelection]="false"
     [emojiPickerDirection]="direction"
+    [emojiPickerAutofocus]="true"
     (emojiPickerSelect)="handleSelection($event)">😄</i>
 </div>
 

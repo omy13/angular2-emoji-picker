@@ -60,8 +60,9 @@ export class CaretEvent {
       if (sel.rangeCount > 0) {
         const range = win.getSelection().getRangeAt(0);
         const preCaretRange = range.cloneRange();
+        const nodeLength = element.textContent.length;
         preCaretRange.selectNodeContents(element);
-        preCaretRange.setEnd(range.endContainer, range.endOffset);
+        preCaretRange.setEnd(range.endContainer, range.endOffset > nodeLength ? nodeLength : range.endOffset);
         caretOffset = preCaretRange.toString().length;
 
         /** Keeping a reference of the range to emit */

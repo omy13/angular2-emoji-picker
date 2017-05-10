@@ -32,6 +32,8 @@ export class AppModule {}
     (click)="toggled = !toggled"
     [(emojiPickerIf)]="toggled"
     [emojiPickerDirection]="'bottom' || 'top' || 'left' || 'right'"
+    [emojiPickerPreserveSelection]="true || false"
+    [emojiPickerAutofocus]="true || false"
     (emojiPickerSelect)="handleSelection($event)">😄</i>
 ```
 
