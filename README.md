@@ -8,6 +8,8 @@ It's pretty basic right now, not very customizable but propagates necessary emoj
 
 [Demo](https://lsharir.github.io/angular2-emoji-picker/)
 
+Demo uses the sprite sheets
+
 
 ### Usage:
 
@@ -22,6 +24,41 @@ import { EmojiPickerModule } from 'angular2-emoji-picker';
   ...
 })
 export class AppModule {}
+
+```
+
+### Use The Sprite Sheet
+
+```
+/** file: app.component.ts */
+
+import { EmojiPickerOptions } from 'angular2-emoji-picker';
+
+/** imported seperately to reduce package size for those who won't use sheets */
+import { EmojiPickerAppleSheetLocator } from 'angular2-emoji-picker/sheets';
+
+constructor(private emojiPickerOptions: EmojiPickerOptions) {
+  this.emojiPickerOptions.setEmojiSheet({
+      url: 'sheet_apple_32.png',
+      locator: EmojiPickerAppleSheetLocator
+    });
+}
+```
+
+include the sheet_apple_32.png file in your build and provide your specific file url
+
+```
+/** .angular-cli.json */
+
+{
+  "apps": [
+    {
+      "assets": [
+        { "glob": "sheet_apple_32.png", "input": "../node_modules/angular2-emoji-picker/sheets/", "output": "./" }
+      ]
+    }
+  ]
+}
 
 ```
 

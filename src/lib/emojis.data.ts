@@ -411,7 +411,7 @@ export const EMOJIS = [
       ],
       [
         "👍",
-        "thumbs_up"
+        "+1"
       ],
       [
         "👎",

@@ -6,7 +6,6 @@
 
 .emoji-button {
   padding: 0;
-  border: none;
   outline: none;
   background: none;
   cursor: pointer;
@@ -16,11 +15,40 @@
   border-radius: $ep-border-radius;
   font-size: ($ep-emoji-width - 10px);
   line-height: 1.1;
-  cursor: pointer;
   transition: all 0.2s;
 
   &:hover, &:focus {
       background: #F1F1F1;
       border-color: #F1F1F1;
+  }
+}
+
+.emoji-button-from-sheet {
+  padding: 0;
+  border: none;
+  outline: none;
+  display: inline-block;
+  background-repeat: no-repeat;
+  /** box shaddowing the edges until I find a better sprite sheet */
+  box-shadow: 0 0 1px 1px white inset;
+  background-size: (25px * 1568 / 32);
+  width: 25px;
+  height: 25px;
+}
+
+.emoji-button-from-sheet-enclosure {
+  display: inline-block;
+  cursor: pointer;
+  line-height: 0;
+  padding: 4.5px;
+  border-radius: $ep-border-radius;
+
+  &:hover, &:focus {
+      background: #F1F1F1;
+      border-color: #F1F1F1;
+
+      .emoji-button-from-sheet {
+        box-shadow: 0 0 1px 1px #F1F1F1 inset;
+      }
   }
 }

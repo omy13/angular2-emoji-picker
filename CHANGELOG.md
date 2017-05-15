@@ -1,5 +1,21 @@
+<a name="1.4.0"></a>
+# [1.4.0](https://github.com/lsharir/angular2-emoji-picker/compare/v1.3.0...v1.4.0) (2017-04-20)
+
+## What's New
+
+* **EmojiPickerOptions:** root provided service to customize the picker (e.g. use of sprite sheets)
+* **Emoji sprite sheets:** provided sprite sheets (usage explained in readme.md)
+
+<a name="1.3.0"></a>
+# [1.3.0](https://github.com/lsharir/angular2-emoji-picker/compare/v1.2.0...v1.3.0) (2017-04-20)
+
+## What's New
+
+* **[emojiPickerAutofocus]="true || false":** chooses whether to autofocus the search bar or not
+* **[emojiPickerPreserveSelection]="true || false":** chooses whether to preserve existing document selection or not
+
 <a name="1.2.0"></a>
-# [1.2.0](https://github.com/angular/angular/compare/v1.1.0...v1.2.0) (2017-04-20)
+# [1.2.0](https://github.com/lsharir/angular2-emoji-picker/compare/v1.1.0...v1.2.0) (2017-04-20)
 
 ### Bug Fixes
 
@@ -20,7 +36,7 @@
 * **(emojiPickerSelect) emitter:** the picker now emits an EmojiEvent object containing a char and label properties. Change usage accordingly (previous => now: event[0] => event.char, event[1] => event.label)
 
 <a name="1.1.0"></a>
-# [1.1.0](https://github.com/angular/angular/compare/v1.0.5...v1.1.0) (2017-04-19)
+# [1.1.0](https://github.com/lsharir/angular2-emoji-picker/compare/v1.0.5...v1.1.0) (2017-04-19)
 
 ### Design
 

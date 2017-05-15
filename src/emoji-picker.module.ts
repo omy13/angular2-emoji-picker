@@ -5,6 +5,8 @@ import { COMPONENTS } from "./components";
 import { DIRECTIVES } from './directives';
 import { PIPES } from './pipes';
 
+import { EmojiPickerOptions } from './services';
+
 import { EmojiPickerComponent } from './components';
 
 @NgModule({
@@ -27,7 +29,9 @@ export class EmojiPickerModule {
   static forRoot(): ModuleWithProviders {
     return {
       ngModule: EmojiPickerModule,
-      providers: []
+      providers: [
+        EmojiPickerOptions
+      ]
     }
   }
 }

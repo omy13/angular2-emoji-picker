@@ -1,5 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
-import { CaretEvent, EmojiEvent } from "../../../src";
+import { CaretEvent, EmojiEvent, EmojiPickerOptions } from "../../../src";
+import { EmojiPickerAppleSheetLocator } from "../../../src/sheets";
 
 @Component({
   selector: 'app-root',
@@ -15,6 +16,13 @@ export class AppComponent {
   public content = 'Type letters, enter emojis, go nuts...';
 
   private _lastCaretEvent: CaretEvent;
+
+  constructor(private emojiPickerOptions: EmojiPickerOptions) {
+    this.emojiPickerOptions.setEmojiSheet({
+      url: 'sheet_apple_32.png',
+      locator: EmojiPickerAppleSheetLocator
+    });
+  }
 
   handleSelection(event: EmojiEvent) {
     this.content = this.content.slice(0, this._lastCaretEvent.caretOffset) + event.char + this.content.slice(this._lastCaretEvent.caretOffset);
