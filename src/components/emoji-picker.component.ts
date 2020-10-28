@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output, ElementRef, Renderer } from '@angular/core';
+import {Component, EventEmitter, Output, ElementRef, Renderer2} from '@angular/core';
 import { DIRECTIONS } from "../lib/picker-directions";
 import { Subject } from "rxjs/Subject";
 import 'rxjs/add/operator/debounceTime';
@@ -30,7 +30,7 @@ export class EmojiPickerComponent {
   private _windowResize = new Subject<any>();
   private _destroyed = new Subject<boolean>();
 
-  constructor(private _renderer: Renderer, private _el: ElementRef) {
+  constructor(private _renderer: Renderer2, private _el: ElementRef) {
     this._windowResize
       .takeUntil(this._destroyed)
       .debounceTime(100)
@@ -44,7 +44,7 @@ export class EmojiPickerComponent {
       return console.error('Emoji-Picker: positioning failed due to missing target element or direction code');
     }
 
-    this._renderer.setElementStyle(this._el.nativeElement, 'transform', '');
+    this._renderer.setStyle(this._el.nativeElement, 'transform', '');
 
     /** Store anchor and direction */
     this._currentTarget = target;
@@ -101,7 +101,7 @@ export class EmojiPickerComponent {
     }
     
     /** set the position adjustments to the emoji picker element */
-    this._renderer.setElementStyle(this._el.nativeElement, 'transform', `translate(${widthCorrection}px,${heightCorrection}px)`);
+    this._renderer.setStyle(this._el.nativeElement, 'transform', `translate(${widthCorrection}px,${heightCorrection}px)`);
   }
 
   setAutofocus(value) {

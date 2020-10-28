@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output, ViewChild, Renderer, ElementRef, Input } from '@angular/core';
+import { Component, EventEmitter, Output, ViewChild, Renderer2, ElementRef, Input } from '@angular/core';
 import { Subject } from "rxjs/Subject";
 import "rxjs/add/operator/throttleTime";
 import "rxjs/add/operator/takeUntil";
@@ -19,7 +19,7 @@ export class EmojiSearchComponent {
   private _searchValue: Subject<string> = new Subject();
   private _destroyed = new Subject<boolean>();
 
-  constructor(private _renderer: Renderer) {
+  constructor(private _renderer: Renderer2) {
     this._searchValue
       .takeUntil(this._destroyed)
       .subscribe(value => {
@@ -29,7 +29,7 @@ export class EmojiSearchComponent {
   
   ngAfterViewInit() {
     if (this.inputAutofocus) {
-      this._renderer.invokeElementMethod(this.input.nativeElement, 'focus');
+      this._renderer.selectRootElement(this.input.nativeElement).focus();
     }
   }
 
