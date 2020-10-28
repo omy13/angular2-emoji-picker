@@ -33,5 +33,5 @@ export class EmojiButtonComponent {
 
   @Output('selection') selectionEmitter : EventEmitter<any> = new EventEmitter();
 
-  constructor(private emojiPickerOptions: EmojiPickerOptions) {}
+  constructor(public emojiPickerOptions: EmojiPickerOptions) {}
 }

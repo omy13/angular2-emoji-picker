@@ -3,7 +3,7 @@ import { EmojiEvent } from './../lib';
 
 @Injectable()
 export class EmojiPickerOptions {
-  private _options = {};
+  private _options : any;
 
   setEmojiSheet(config: EmojiPickerSheetOption) {
     if (!config || !config.url || !config.locator) {
