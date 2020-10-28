@@ -26,7 +26,7 @@ import { EmojiPickerComponent } from './components';
   entryComponents: [EmojiPickerComponent]
 })
 export class EmojiPickerModule {
-  static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders<any> {
     return {
       ngModule: EmojiPickerModule,
       providers: [
