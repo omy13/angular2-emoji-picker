@@ -1,0 +1,43 @@
+{
+  "name": "angular2-emoji-picker",
+  "version": "1.4.6",
+  "description": "Emoji picker for angular2+",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lsharir/angular2-emoji-picker.git"
+  },
+  "author": "Liran Sharir <lsharir@gmail.com>",
+  "main": "./lib-dist/index.js",
+  "types": "./lib-dist/index.d.ts",
+  "scripts": {
+    "build:library": "nglb --rootDir src --outDir lib-dist"
+  },
+  "keywords": [
+    "angular",
+    "angular2",
+    "emoji",
+    "picker",
+    "dropdown"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^7.0.12",
+    "angular-library-builder": "^1.5.11"
+  },
+  "dependencies": {
+    "@angular/common": ">=2.4.0",
+    "@angular/compiler": ">=2.4.0",
+    "@angular/core": ">=2.4.0",
+    "core-js": ">=2.4.1",
+    "rxjs": ">=5.1.0",
+    "zone.js": ">=0.7.6"
+  },
+  "peerDependencies": {
+    "@angular/common": ">=2.4.0",
+    "@angular/compiler": ">=2.4.0",
+    "@angular/core": ">=2.4.0",
+    "core-js": ">=2.4.1",
+    "rxjs": ">=5.1.0",
+    "zone.js": ">=0.7.6"
+  }
+}
